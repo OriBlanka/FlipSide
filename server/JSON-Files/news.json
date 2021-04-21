@@ -1,0 +1,114 @@
+[    
+    {
+        "subject": "תחקיר סגירת נתבג", "subjectPic": "D:/Ori-Studies/miLab/Lab/project/FlipSide/server/pictures/airport_closing_topic_pic.jpg", "News" :[
+            {
+                "title": "מירי רגב: נחפש מתווה חדש לנתבג. בני גנץ: שיקולים פוליטיים",
+                "webName": "סרוגים",
+                "summary": "",
+                "link": ""
+            },
+            {
+                "title": "תחקיר מביש שמעליב את העיתונות",
+                "webName": "ישראל היום",
+                "summary": "",
+                "link": ""
+            },
+            {
+                "title": "מחדל סגירת השמים: מאעכרים, קומבינות ופרוטקציות כדי להיכנס לישראל",
+                "webName": "N12",
+                "summary": "",
+                "link": ""
+            },
+            {
+                "title": "מה הסיפור של נתניהו עם טיסות?",
+                "webName": "The Marker",
+                "summary": "",
+                "link": ""
+            }
+        ]
+    },
+    {
+        "subject": "פרשת שר הפנים דרעי", "subjectPic": "D:/Ori-Studies/miLab/Lab/project/FlipSide/server/pictures/arie_deryi_topic_pic.jpg", "News" :[
+            {
+                "title": "דרעי: מודה לבורא עולם על ביטול האישומים השקריים נגדי",
+                "webName": "בחדרי חרדים",
+                "summary": "",
+                "link": ""
+            },
+            {
+                "title": "עורך דין אורי קורב על תיק דרעי: ההר הוליד עכבר",
+                "webName": "כיכר השבת",
+                "summary": "",
+                "link": ""
+            },
+            {
+                "title": "עבירות מס במקום שוחד: דרעי יואשם בכפוף לשימוע",
+                "webName": "ynet",
+                "summary": "",
+                "link": ""
+            },
+            {
+                "title": "סופן של עבירות המס המיוחסות לאריה דרעי - מאסר",
+                "webName": "The Marker",
+                "summary": "",
+                "link": ""
+            }
+        ]
+    },
+    {
+        "subject": "מותו של אהוביה סנדק", "subjectPic": "D:/Ori-Studies/miLab/Lab/project/FlipSide/server/pictures/hahuvya_topic_pic.jpg", "News" :[
+            {
+                "title": "זה כמעט נגמר באסון: שוטר מעיף מפגין על רכב נוסע",
+                "webName": "סרוגים",
+                "summary": "",
+                "link": ""
+            },
+            {
+                "title": "מפגינים על מות אהוביה סנדק תועדו מכים שוטרים בירושלים: תשרפו אותם",
+                "webName": "וואלה",
+                "summary": "",
+                "link": ""
+            },
+            {
+                "title": "מפגינים על מות אהוביה סנדק: תשרפו אותם",
+                "webName": "ynet",
+                "summary": "",
+                "link": ""
+            },
+            {
+                "title": "המחאה על מותו של אהוביה סנדק: מפגינים תקפו שוטרים, 34 נעצרו",
+                "webName": "מעריב",
+                "summary": "",
+                "link": ""
+            }
+        ]
+    },
+    {
+        "subject": "הבמאי לשחקנית גל גדות", "subjectPic": "D:/Ori-Studies/miLab/Lab/project/FlipSide/server/pictures/gal_gadot_topic_pic.jpg", "News" :[
+            {
+                "title": "ג'וס ווידן איים לפגוע בקריירה של גל גדות בצילומי ליגת הצדק",
+                "webName": "mako",
+                "summary": "",
+                "link": ""
+            },
+            {
+                "title": "במאי סרט ליגת הצדק התבטא באופן מעליב מול גל גדות: נמאס לי ממנה, היא צריכה לשתוק",
+                "webName": "HE NEWS",
+                "summary": "",
+                "link": ""
+            },
+            {
+                "title": "ליגה ללא צדק: האם הבמאי של הסרט התעלל בגל גדות",
+                "webName": "סרוגים",
+                "summary": "",
+                "link": ""
+            },
+            {
+                "title": "דרמה בהוליווד: במאי ליגת הצדק איים לפגוע בקריירה של גל גדות",
+                "webName": "מעריב",
+                "summary": "",
+                "link": ""
+            }
+        ]
+    }
+]
