@@ -12,6 +12,7 @@ app.get('/', (req, res) => {
         res.send("There isn't such file - please try again");
         return; //If there isn't such file, there isn't reason to continue
     }
+    res.setHeader('Content-Type', 'application/json; charset=utf-8');
     //Reading the file from images folder and piping it
     fs.createReadStream(filePath).pipe(res);
 });
