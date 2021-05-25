@@ -1,14 +1,17 @@
 package com.flipside.model;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+
 import java.util.List;
 
 public class AllNews {
 
     String newsTitle;
-    int newsImage;
+    String newsImage;
     List<NewsItem> newsItemList;
 
-    public AllNews(String newsTitle, int newsImage, List<NewsItem> newsItemList) {
+    public AllNews(String newsTitle, String newsImage, List<NewsItem> newsItemList) {
         this.newsTitle = newsTitle;
         this.newsImage = newsImage;
         this.newsItemList = newsItemList;
@@ -30,11 +33,11 @@ public class AllNews {
         this.newsTitle = newsTitle;
     }
 
-    public int getNewsImage() {
+    public String getNewsImage() {
         return newsImage;
     }
 
-    public void setNewsImage(int newsImage) {
+    public void setNewsImage(String newsImage) {
         this.newsImage = newsImage;
     }
 }

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.flipside.R;
 import com.flipside.model.AllNews;
 import com.flipside.model.NewsItem;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -36,7 +37,10 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
     @Override
     public void onBindViewHolder(@NonNull MainViewHolder holder, int position) {
         holder.newsCategoryTitle.setText(allNewsList.get(position).getNewsTitle());
-        holder.newsCategoryImage.setImageResource(allNewsList.get(position).getNewsImage());
+        //holder.newsCategoryImage.setImageResource(allNewsList.get(position).getNewsImage());
+        //holder.newsCategoryImage.setImageDrawable(allNewsList.get(position).getNewsImage());
+        //holder.newsCategoryImage.setImageBitmap(allNewsList.get(position).getNewsImage());
+        Picasso.get().load(allNewsList.get(position).getNewsImage()).into(holder.newsCategoryImage);
         setNewsItemRecycler(holder.itemRecycler, allNewsList.get(position).getNewsItemList());
     }
 

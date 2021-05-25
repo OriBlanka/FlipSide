@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private LoginButton loginButton;
     private GoogleSignInClient mGoogleSignInClient;
     private SignInButton verify;
+    private Button loginBt;
 
     private static final String TAG = "MainActivity";
     private static final int RC_SIGN_IN = 123;
@@ -55,6 +56,15 @@ public class MainActivity extends AppCompatActivity {
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         FacebookSdk.sdkInitialize(getApplicationContext());
+
+        loginBt = findViewById(R.id.nextButton);
+        loginBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, NewsPage.class);
+                startActivity(intent);
+            }
+        });
 
         loginButton = findViewById(R.id.fLogin_button);
         loginButton.setReadPermissions("email", "public_profile");
