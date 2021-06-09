@@ -6,12 +6,14 @@ public class NewsItem {
     int newsItemId;
     String newsSummary;
     String newsURL;
+    String newsNameImg;
 
-    public NewsItem(int newsItemId, String newsItemTitle, String newsSummary, String newsURL) {
+    public NewsItem(int newsItemId, String newsItemTitle, String newsSummary, String newsURL, String newsNameImg) {
         this.newsItemTitle = newsItemTitle;
         this.newsItemId = newsItemId;
         this.newsSummary = newsSummary;
         this.newsURL = newsURL;
+        this.newsNameImg = newsNameImg;
     }
 
     public String getNewsItemTitle() {
@@ -44,5 +46,13 @@ public class NewsItem {
 
     public void setNewsURL(String newsURL) {
         this.newsURL = newsURL;
+    }
+
+    public String getNewsNameImg() {
+        return newsNameImg;
+    }
+
+    public void setNewsNameImg(String newsNameImg) {
+        this.newsNameImg = newsNameImg;
     }
 }

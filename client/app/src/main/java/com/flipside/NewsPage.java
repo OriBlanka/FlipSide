@@ -83,11 +83,11 @@ public class NewsPage extends AppCompatActivity {
 
     private void readDatabaseData() {
         DatabaseReference ref = mDatabase.getReference("NewSubjects");
-        List<AllNews> allNewsList = new ArrayList<>();
 
         ValueEventListener eventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                List<AllNews> allNewsList = new ArrayList<>();
                 Log.d(TAG, "Snapshot received " + dataSnapshot.getValue());
 
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
@@ -96,7 +96,6 @@ public class NewsPage extends AppCompatActivity {
                     Log.d(TAG, "subjectTitle " + subjectTitle);
                     String subjectPic = child.child("subjectPic").getValue(String.class);
                     Log.d(TAG, "subjectPic " + subjectPic);
-                    Bitmap picBitmap = LoadImageFromWebOperations(subjectPic);
                     List<NewsItem> newsItemList = new ArrayList<>();
                     for(DataSnapshot grandChild : child.child("News").getChildren()){
                         String newsName = grandChild.child("title").getValue(String.class);
@@ -105,7 +104,8 @@ public class NewsPage extends AppCompatActivity {
                         Log.d(TAG, "newsLink " + newsLink);
                         String newsSummary = grandChild.child("summary").getValue(String.class);
                         Log.d(TAG, "newsSummary " + newsSummary);
-                        newsItemList.add(new NewsItem(1, newsName, newsSummary, newsLink));
+                        String newsWebImg = grandChild.child("webName").getValue(String.class);
+                        newsItemList.add(new NewsItem(1, newsName, newsSummary, newsLink, newsWebImg));
                     }
                     allNewsList.add(new AllNews(subjectTitle, subjectPic, newsItemList));
                 }
@@ -130,14 +130,4 @@ public class NewsPage extends AppCompatActivity {
         mainNewsRecycler.setAdapter(mainRecyclerAdapter);
     }
 
-    private static Bitmap LoadImageFromWebOperations(String url) {
-        Bitmap bmp = null;
-        try{
-            InputStream is = new URL(url).openStream();
-            bmp = BitmapFactory.decodeStream(is);
-        }catch(Exception e){ // Catch the download exception
-            e.printStackTrace();
-        }
-        return bmp;
-    }
 }

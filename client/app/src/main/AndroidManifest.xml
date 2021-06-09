@@ -10,8 +10,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FlipSide">
-        <activity android:name=".NewsPage"></activity>
+        android:theme="@style/Theme.FlipSide"
+        android:usesCleartextTraffic="true"
+        >
+        <activity android:name=".NewsPagesCategory"></activity>
+        <activity android:name=".NewsPage" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

@@ -1,6 +1,7 @@
 package com.flipside.adapter;
 
 import android.content.Context;
+import android.graphics.Matrix;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,9 +38,6 @@ public class MainRecyclerAdapter extends RecyclerView.Adapter<MainRecyclerAdapte
     @Override
     public void onBindViewHolder(@NonNull MainViewHolder holder, int position) {
         holder.newsCategoryTitle.setText(allNewsList.get(position).getNewsTitle());
-        //holder.newsCategoryImage.setImageResource(allNewsList.get(position).getNewsImage());
-        //holder.newsCategoryImage.setImageDrawable(allNewsList.get(position).getNewsImage());
-        //holder.newsCategoryImage.setImageBitmap(allNewsList.get(position).getNewsImage());
         Picasso.get().load(allNewsList.get(position).getNewsImage()).into(holder.newsCategoryImage);
         setNewsItemRecycler(holder.itemRecycler, allNewsList.get(position).getNewsItemList());
     }

@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         loginBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, NewsPage.class);
+                Intent intent = new Intent(MainActivity.this, NewsPagesCategory.class);
                 startActivity(intent);
             }
         });

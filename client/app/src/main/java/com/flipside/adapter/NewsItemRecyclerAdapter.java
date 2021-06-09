@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.flipside.NewsPage;
 import com.flipside.R;
 import com.flipside.model.NewsItem;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -44,6 +46,7 @@ public class NewsItemRecyclerAdapter extends RecyclerView.Adapter<NewsItemRecycl
     @Override
     public void onBindViewHolder(@NonNull NewsItemViewHolder holder, int position) {
         holder.newsItemButton.setText(newsItemList.get(position).getNewsItemTitle());
+        Picasso.get().load(newsItemList.get(position).getNewsNameImg()).into(holder.webNameImage);
         holder.newsItemButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,11 +91,13 @@ public class NewsItemRecyclerAdapter extends RecyclerView.Adapter<NewsItemRecycl
     public static final class NewsItemViewHolder extends RecyclerView.ViewHolder{
 
         Button newsItemButton;
+        ImageView webNameImage;
 
         public NewsItemViewHolder(@NonNull View itemView) {
             super(itemView);
 
             newsItemButton = itemView.findViewById(R.id.newsButton);
+            webNameImage = itemView.findViewById(R.id.webImageView);
 
         }
     }
