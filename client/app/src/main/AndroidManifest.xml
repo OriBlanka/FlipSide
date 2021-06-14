@@ -13,7 +13,8 @@
         android:theme="@style/Theme.FlipSide"
         android:usesCleartextTraffic="true"
         >
-        <activity android:name=".NewsPagesCategory"></activity>
+        <activity android:name=".NewsPagesCategory"
+            android:theme="@style/Theme.FlipSide.NoActionBar"></activity>
         <activity android:name=".NewsPage" />
 
         <meta-data
@@ -45,7 +46,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.FlipSide.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

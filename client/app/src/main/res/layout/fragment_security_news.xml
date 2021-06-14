@@ -9,7 +9,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/newsRecyclerView"
         android:layout_width="413dp"
-        android:layout_height="670dp"
+        android:layout_height="match_parent"
         android:background="#FFFFFF" />
 
 </FrameLayout>

@@ -2,7 +2,11 @@ package com.flipside;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -16,14 +20,17 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
 import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewsPagesCategory extends AppCompatActivity {
+public class NewsPagesCategory extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     TabLayout tabLayout;
     ViewPager viewPager;
@@ -32,6 +39,10 @@ public class NewsPagesCategory extends AppCompatActivity {
     String selectedTabTitle = "ראשי";
     NewsFragment newsFrag = new NewsFragment();
 
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbar;
+
     private static final String TAG = "NewsCategory";
 
     @Override
@@ -39,13 +50,27 @@ public class NewsPagesCategory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_pages_category);
 
-        Bundle bundle = new Bundle();
-        bundle.putString("categoryTitle", "ראשי");
-        NewsFragment fragobj = new NewsFragment();
-        fragobj.setArguments(bundle);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        toolbar = findViewById(R.id.toolbar);
+
+        navigationView.setNavigationItemSelectedListener(this);
+
+        setSupportActionBar(toolbar);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
 
         tabLayout = findViewById(R.id.categoryTabLayout);
         viewPager = findViewById(R.id.newsViewPager);
+
+        if(savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.newsViewPager,
+                    new NewsFragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_main);
+        }
+
 
         adapter = new MainAdapter(getSupportFragmentManager());
 
@@ -65,7 +90,6 @@ public class NewsPagesCategory extends AppCompatActivity {
         Log.d(TAG, selectedTabTitle);
         Log.d(TAG, String.valueOf(tabPosition));
 
-
         //change the first selected tab style to bold
         Spannable wordtoSpan = new SpannableString(String.valueOf(selectedTabTitle));
         wordtoSpan.setSpan(new StyleSpan(Typeface.BOLD), 0, wordtoSpan.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -83,8 +107,6 @@ public class NewsPagesCategory extends AppCompatActivity {
                 Spannable wordtoSpan = new SpannableString(String.valueOf(tab.getText()));
                 wordtoSpan.setSpan(new StyleSpan(Typeface.BOLD), 0, wordtoSpan.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 tab.setText(wordtoSpan);
-
-                //newsFrag.refresh();
             }
 
             @Override
@@ -99,30 +121,27 @@ public class NewsPagesCategory extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
+    }
 
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.nav_source:
+                getSupportFragmentManager().beginTransaction().replace(R.id.newsViewPager,
+                        new SourceFragment()).commit();
+                break;
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
 
-            // This method will be invoked when a new page becomes selected.
-            @Override
-            public void onPageSelected(int position) {
-                Toast.makeText(NewsPagesCategory.this,
-                        "Selected page position: " + position, Toast.LENGTH_SHORT).show();
-                //newsFrag.refresh();
-            }
-
-            // This method will be invoked when the current page is scrolled
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                // Code goes here
-            }
-
-            // Called when the scroll state changes:
-            // SCROLL_STATE_IDLE, SCROLL_STATE_DRAGGING, SCROLL_STATE_SETTLING
-            @Override
-            public void onPageScrollStateChanged(int state) {
-                // Code goes here
-            }
-        });
+    @Override
+    public void onBackPressed() {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     public String getCategoryName(){

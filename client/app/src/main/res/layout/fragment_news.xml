@@ -9,8 +9,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/newsRecyclerView"
         android:layout_width="413dp"
-        android:layout_height="670dp"
+        android:layout_height="match_parent"
         android:background="#FFFFFF"
-        android:paddingBottom="?attr/actionBarSize"/>
+        android:paddingBottom="?attr/actionBarSize" />
 
 </FrameLayout>

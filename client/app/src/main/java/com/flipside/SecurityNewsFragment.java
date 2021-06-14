@@ -142,7 +142,6 @@ public class SecurityNewsFragment extends Fragment {
     }
 
     private void setMainNewsRecycler(List<AllNews> allNewsList) {
-
         mainRecyclerAdapter = new MainRecyclerAdapter(this.getActivity(), allNewsList);
         layoutManager = new LinearLayoutManager(this.getContext());
         rvNews.setLayoutManager(layoutManager);
