@@ -148,5 +148,6 @@ function fetchArticles(){
         fetcher(RSS_URL[i], webSites[i], webLogo[i]);
     }
 }
+
 fetchArticles()
 module.exports = { fetchArticles };

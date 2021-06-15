@@ -1,5 +1,5 @@
 const sorter = require("./sorter");
-const fetcher = require("./fetcher")
+const fetcher = require("./fetcher");
 
 const MINUTE = 60000;
 
@@ -15,7 +15,7 @@ function runBackEnd() {
     })
     .then(() => {
         console.log("Done sorting - pushing")
-        sorter.pushBundles()
+        setTimeout(sorter.pushBundles(), 1000)
     })
     .then(() => {
         console.log('Cycle done, wait for next');
@@ -25,4 +25,8 @@ function runBackEnd() {
     });
 }
 
-setInterval(runBackEnd, 30 * MINUTE)
+setInterval(runBackEnd, 30 *  MINUTE)
+// fetcher.fetchArticles()
+// sorter.createBundles()
+// sorter.pushBundles()
+// runBackEnd()
